@@ -1,0 +1,37 @@
+/mnt/store/digital/apache/*/access_combined
+/mnt/store/digital/felix/*/felix.log
+/mnt/store/digital/strongmail/*/*.log
+/mnt/store/operations/apache/*/access_combined
+/mnt/store/operations/cisco_acs/*/cisco_acs.log
+/mnt/store/operations/cron/*/cron
+/mnt/store/operations/iona/*/iona.log
+/mnt/store/operations/linux_messages_syslog/*/messages
+/mnt/store/operations/linux_secure/*/secure
+/mnt/store/operations/nagios/*/nagios.log
+/mnt/store/operations/postfix_syslog/*/maillog
+/mnt/store/operations/snipp/*/*.log
+/mnt/store/operations/vmware/*/vmware.log
+/mnt/store/operations/windows/*/snare
+/mnt/store/operations/wireless/*/wireless.log
+/mnt/store/log_mgmt_stats/*/*.log
+{
+    daily
+    rotate 1095
+    notifempty
+    sharedscripts
+    dateext
+    postrotate
+	/bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+/mnt/store/digital/apache/*/access_combined
+{
+    daily
+    rotate 7
+    notifempty
+    sharedscripts
+    dateext
+    postrotate
+	/bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}

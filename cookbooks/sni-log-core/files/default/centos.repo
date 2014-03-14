@@ -1,0 +1,4 @@
+[centos-6-base]
+name=CentOS-6 - Base
+mirrorlist=http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=os
+enabled=1

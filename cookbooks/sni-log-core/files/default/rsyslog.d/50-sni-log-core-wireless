@@ -1,0 +1,10 @@
+# Created by Shane Murphy for Scripps Networks 3/5/2014
+# Ingests wireless access point data by regular expression as defined by
+# Travis Allen
+
+template(name="DYNwireless" type="string" string="/mnt/store/operations/wireless/%hostname%/wireless.log")
+
+# note the below uses POSIX regex, so we have to use [0-9] instead of \d
+# also, not sure why * works but + doesn't for this match... 
+
+:programname, regex, "-wlc[0-9]*-" action(type="omfile" name="DYNwireless" DynaFile="DYNwireless")
